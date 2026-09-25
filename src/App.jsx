@@ -1,10 +1,11 @@
+import { HashRouter as Router } from 'react-router-dom';
 import PublicLanding from './components/PublicLanding';
 
 function App() {
   return (
-    <div>
+    <Router>
       <PublicLanding />
-    </div>
+    </Router>
   );
 }
 
