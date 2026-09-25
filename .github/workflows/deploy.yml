@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ['main'] # mee branch peru 'master' aithe ikkada master ani pettandi
+    branches: ['main']
 
 permissions:
   contents: read
