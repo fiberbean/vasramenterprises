@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0A0A0F;
+  --foreground: #FFFFFF;
 }
 
 @theme inline {
@@ -12,15 +12,108 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  font-size: 90%;  /* Overall size 10% tagginchindi */
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+/* ============================================
+   CUSTOM UTILITY CLASSES
+   ============================================ */
+
+/* Glassmorphism */
+.glass {
+  background: rgba(17, 24, 39, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #00E5FF 0%, #3B82F6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  text-shadow: 0 0 40px rgba(0, 229, 255, 0.4);
+  filter: drop-shadow(0 0 25px rgba(0, 229, 255, 0.3));
+}
+
+/* Animated grid background */
+.grid-bg {
+  background-image: 
+    linear-gradient(rgba(0, 229, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Grey text visibility — brighter + glow */
+.text-gray-400 {
+  color: #D1D5DB !important;
+  text-shadow: 0 0 10px rgba(209, 213, 219, 0.2);
+}
+
+.text-gray-500 {
+  color: #9CA3AF !important;
+  text-shadow: 0 0 8px rgba(156, 163, 175, 0.15);
+}
+
+/* White text subtle glow */
+.text-white {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================
+   GLOBAL SECTION SPACING (Reduced)
+   ============================================ */
+
+section {
+  padding-top: 4rem;      /* 64px — mundu 5rem undi */
+  padding-bottom: 4rem;   /* 64px */
+}
+
+section#home {
+  padding-top: 7rem;      /* 112px — navbar kinda */
+  padding-bottom: 4rem;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+/* Scroll margin (navbar kinda) */
+[id] {
+  scroll-margin-top: 6rem;
 }
